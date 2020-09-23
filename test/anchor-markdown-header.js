@@ -15,19 +15,19 @@ test('\ngenerating anchor in github mode', function (t) {
 
   var check = checkResult.bind(null, t, undefined, undefined);
 
-  [ [ 'intro', null,  '#intro' ]
-  , [ 'intro', 0,  '#intro' ]
-  , [ 'intro', 1,  '#intro-1' ]
-  , [ 'mineflayer.windows.Window (base class)', null,  '#mineflayerwindowswindow-base-class']
+  [ [ 'intro', null, '#intro' ]
+  , [ 'intro', 0, '#intro' ]
+  , [ 'intro', 1, '#intro-1' ]
+  , [ 'mineflayer.windows.Window (base class)', null, '#mineflayerwindowswindow-base-class']
   , [ 'window.findInventoryItem(itemType, metadata, [notFull])', null, '#windowfindinventoryitemitemtype-metadata-notfull' ]
   , [ 'furnace "updateSlot" (oldItem, newItem)', null, '#furnace-updateslot-olditem-newitem' ]
   , [ '"playerJoined" (player)', null, '#playerjoined-player' ]
-  , [ 'proxyquire(request: String, stubs: Object)', null, '#proxyquirerequest-string-stubs-object' ],
+  , [ 'proxyquire(request: String, stubs: Object)', null, '#proxyquirerequest-string-stubs-object' ]
   , [ 'create object (post /db/create)', null, '#create-object-post-dbcreate' ]
   , [ 'where is it?', null, '#where-is-it' ]
   , [ "'webdav' Upload Method for 'dput'", null, '#webdav-upload-method-for-dput' ]
-  , [ 'remove ;;semi;colons', null, '#remove-semicolons' ],
-  , [ 'remove {curly braces}{}', null, '#remove-curly-braces'],
+  , [ 'remove ;;semi;colons', null, '#remove-semicolons' ]
+  , [ 'remove {curly braces}{}', null, '#remove-curly-braces']
   , [ 'remove ++++pluses+', null, '#remove-pluses']
   , [ 'remove escape codes %3Cstatic%E3 coreappupevents %E2%86%92 object', null, '#remove-escape-codes-static-coreappupevents--object']
   , [ 'remove lt and gt <static>mycall', null, '#remove-lt-and-gt-mycall']
@@ -59,19 +59,19 @@ test('\ngenerating anchor in ghost mode', function (t) {
 
   var check = checkResult.bind(null, t, 'ghost.org', undefined);
 
-  [ [ 'intro', null,  '#intro' ]
-  , [ 'intro', 0,  '#intro' ]
-  , [ 'repetitions not supported', 1,  '#repetitionsnotsupported' ]
-  , [ 'mineflayer.windows.Window (base class)', null,  '#mineflayerwindowswindowbaseclass']
+  [ [ 'intro', null, '#intro' ]
+  , [ 'intro', 0, '#intro' ]
+  , [ 'repetitions not supported', 1, '#repetitionsnotsupported' ]
+  , [ 'mineflayer.windows.Window (base class)', null, '#mineflayerwindowswindowbaseclass']
   , [ 'window.findInventoryItem(itemType, metadata, [notFull])', null, '#windowfindinventoryitemitemtypemetadatanotfull' ]
   , [ 'furnace "updateSlot" (oldItem, newItem)', null, '#furnaceupdateslotolditemnewitem' ]
   , [ '"playerJoined" (player)', null, '#playerjoinedplayer' ]
-  , [ 'proxyquire(request: String, stubs: Object)', null, '#proxyquirerequeststringstubsobject' ],
+  , [ 'proxyquire(request: String, stubs: Object)', null, '#proxyquirerequeststringstubsobject' ]
   , [ 'create object (post /db/create)', null, '#createobjectpostdbcreate' ]
   , [ 'where is it?', null, '#whereisit' ]
   , [ "'webdav' Upload Method for 'dput'", null, '#webdavuploadmethodfordput' ]
-  , [ 'remove ;;semi;colons', null, '#removesemicolons' ],
-  , [ 'remove {curly braces}{}', null, '#removecurlybraces'],
+  , [ 'remove ;;semi;colons', null, '#removesemicolons' ]
+  , [ 'remove {curly braces}{}', null, '#removecurlybraces']
   , [ 'remove ++++pluses+', null, '#removepluses']
   , [ 'does not remove escape codes instead removes % as in %3Cstatic%E3 %86 %3Cstatic%E3 coreappupevents %E2%86%92 object', null, '#doesnotremoveescapecodesinsteadremovesasin3cstatice3863cstatice3coreappupeventse28692object']
   , [ 'remove lt and gt <static>mycall', null, '#removeltandgtstaticmycall']
