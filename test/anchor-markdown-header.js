@@ -34,7 +34,7 @@ test('\ngenerating anchor in github mode', function (t) {
   , [ 'remove exclamation point!', null, '#remove-exclamation-point']
   , [ 'remove = sign', null, '#remove--sign']
   , [ '`history [pgn | alg]`', null, '#history-pgn--alg']
-  , [ 'preseve consecutive | = hyphens', null, '#preseve-consecutive---hyphens']
+  , [ 'preserve consecutive | = hyphens', null, '#preserve-consecutive---hyphens']
   , [ 'Demo #1: using the `-s` option', null, '#demo-1-using-the--s-option']
   , [ 'class~method', null, '#classmethod']
   , [ 'func($event)', null, '#funcevent']
@@ -135,6 +135,12 @@ test('\ngenerating anchor in gitlab mode', function (t) {
   , ['..Ab_c-d. e [anchor](url) ![alt text](url)..', null, '#ab_c-d-e-anchor']
   , [ '存在，【中文】；《标点》、符号！的标题？', null, '#%E5%AD%98%E5%9C%A8%E4%B8%AD%E6%96%87%E6%A0%87%E7%82%B9%E7%AC%A6%E5%8F%B7%E7%9A%84%E6%A0%87%E9%A2%98']
   , [ 'exists:*table*,_column_', null, '#existstablecolumn']
+  , [ 'Modules 📦', null, '#modules-']
+  , [ 'Modu📦les', null, '#modules']
+  , [ 'Mo📦du📦les', null, '#modules']
+  , [ '👷🏼‍♀️ Maintenance', null, '#%EF%B8%8F-maintenance']
+  , [ 'Alarm clock ⏰', null, '#alarm-clock-']
+  , [ 'Apple Watch ⌚️', null, '#apple-watch-%EF%B8%8F']
   ].forEach(function (x) { check(x[0], x[1], x[2]) });
   t.end();
 })

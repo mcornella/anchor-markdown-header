@@ -43,9 +43,6 @@ function getGithubId(text, repetition) {
     text += '-' + repetition;
   }
 
-  // Strip emojis
-  text = text.replace(emojiRegex(), '');
-
   return text;
 }
 
@@ -109,6 +106,15 @@ function getGitlabId(text, repetition) {
 }
 
 
+function customEmojiEncodeURI(uri) {
+  var newURI = encodeURI(uri.replace(emojiRegex(), ''));
+
+  // encodeURI replaces the zero width joiner character
+  // (used to generate emoji sequences, e.g.Female Construction Worker 👷🏼‍♀️)
+  // github doesn't URL encode them, so we replace them after url encoding to preserve the zwj character.
+  return newURI.replace(/%E2%80%8D/g, '%EF%B8%8F');
+}
+
 /**
  * Generates an anchor for the given header and mode.
  *
@@ -128,20 +134,14 @@ module.exports = function anchorMarkdownHeader(header, mode, repetition, moduleN
   switch(mode) {
     case 'github.com':
       replace = getGithubId;
-      customEncodeURI = function(uri) {
-        var newURI = encodeURI(uri);
-
-        // encodeURI replaces the zero width joiner character
-        // (used to generate emoji sequences, e.g.Female Construction Worker 👷🏼‍♀️)
-        // github doesn't URL encode them, so we replace them after url encoding to preserve the zwj character.
-        return newURI.replace(/%E2%80%8D/g, '%EF%B8%8F');
-      };
+      customEncodeURI = customEmojiEncodeURI;
       break;
     case 'bitbucket.org':
       replace = getBitbucketId;
       break;
     case 'gitlab.com':
       replace = getGitlabId;
+      customEncodeURI = customEmojiEncodeURI;
       break;
     case 'nodejs.org':
       if (!moduleName) throw new Error('Need module name to generate proper anchor for ' + mode);
