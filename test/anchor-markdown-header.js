@@ -50,6 +50,7 @@ test('\ngenerating anchor in github mode', function (t) {
   , [ 'Alarm clock ⏰', null, '#alarm-clock-']
   , [ 'Apple Watch ⌚️', null, '#apple-watch-%EF%B8%8F']
   , [ 'Remove Markdown links [`EventEmitter`](http://nodejs.org/api/events.html)', null, '#remove-markdown-links-eventemitter']
+  , [ 'exists:*table*,_column_', null, '#existstablecolumn']
   ].forEach(function (x) { check(x[0], x[1], x[2]) });
   t.end();
 })
@@ -133,6 +134,7 @@ test('\ngenerating anchor in gitlab mode', function (t) {
   , [ 'foo.bar', null, '#foobar']
   , ['..Ab_c-d. e [anchor](url) ![alt text](url)..', null, '#ab_c-d-e-anchor']
   , [ '存在，【中文】；《标点》、符号！的标题？', null, '#%E5%AD%98%E5%9C%A8%E4%B8%AD%E6%96%87%E6%A0%87%E7%82%B9%E7%AC%A6%E5%8F%B7%E7%9A%84%E6%A0%87%E9%A2%98']
+  , [ 'exists:*table*,_column_', null, '#existstablecolumn']
   ].forEach(function (x) { check(x[0], x[1], x[2]) });
   t.end();
 })

@@ -21,6 +21,10 @@ function basicGithubId(text) {
   return text.replace(/ /g,'-')
     // escape codes
     .replace(/%([abcdef]|\d){2,2}/ig, '')
+    // percent characters
+    .replace(/%/g, '')
+    // italic and bold marks
+    .replace(/\b[_*]|[_*]\b/g, '')
     // link URLs are removed
     .replace(/\[(.*)\]\(.*\)/, '$1')
     // single chars that are removed
@@ -86,16 +90,21 @@ function getGitlabId(text, repetition) {
     .replace(/<(.*)>(.*)<\/\1>/g,"$2") // html tags
     .replace(/!\[.*\]\(.*\)/g,'')      // image tags
     .replace(/\[(.*)\]\(.*\)/,"$1")    // url
+    .replace(/%/g, '')                 // % characters
+    .replace(/\b[_*]|[_*]\b/g, '')     // italic and bold marks
     .replace(/\s+/g, '-')              // All spaces are converted to hyphens
     .replace(/[\/?!:\[\]`.,()*"';{}+=<>~\$|#@]/g,'') // All non-word text (e.g., punctuation, HTML) is removed
     .replace(/[。？！，、；：“”【】（）〔〕［］﹃﹄“ ”‘’﹁﹂—…－～《》〈〉「」]/g, '') // remove CJK punctuations
     .replace(/[-]+/g,'-')              // duplicated hyphen
     .replace(/^-/,'')                  // ltrim hyphen
-    .replace(/-$/,'');                 // rtrim hyphen
+    .replace(/-$/,'')                  // rtrim hyphen
+    ;
+
   // If no repetition, or if the repetition is 0 then ignore. Otherwise append '-' and the number.
   if (repetition) {
     text += '-' + repetition;
   }
+
   return text;
 }
 
