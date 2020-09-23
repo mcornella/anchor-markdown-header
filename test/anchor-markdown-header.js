@@ -46,7 +46,9 @@ test('\ngenerating anchor in github mode', function (t) {
   , [ 'Modules 📦', null, '#modules-']
   , [ 'Modu📦les', null, '#modules']
   , [ 'Mo📦du📦les', null, '#modules']
-  , [ '👷🏼‍♀️ Maintenance', null, '#\u200D-maintenance']
+  , [ '👷🏼‍♀️ Maintenance', null, '#%EF%B8%8F-maintenance']
+  , [ 'Alarm clock ⏰', null, '#alarm-clock-']
+  , [ 'Apple Watch ⌚️', null, '#apple-watch-%EF%B8%8F']
   ].forEach(function (x) { check(x[0], x[1], x[2]) });
   t.end();
 })

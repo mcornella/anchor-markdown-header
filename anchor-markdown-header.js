@@ -38,7 +38,7 @@ function getGithubId(text, repetition) {
   }
 
   // Strip emojis
-  text = text.replace(emojiRegex(), '')
+  text = text.replace(emojiRegex(), '');
 
   return text;
 }
@@ -123,7 +123,7 @@ module.exports = function anchorMarkdownHeader(header, mode, repetition, moduleN
         // encodeURI replaces the zero width joiner character
         // (used to generate emoji sequences, e.g.Female Construction Worker 👷🏼‍♀️)
         // github doesn't URL encode them, so we replace them after url encoding to preserve the zwj character.
-        return newURI.replace(/%E2%80%8D/g, '\u200D');
+        return newURI.replace(/%E2%80%8D/g, '%EF%B8%8F');
       };
       break;
     case 'bitbucket.org':
