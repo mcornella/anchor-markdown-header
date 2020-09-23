@@ -49,6 +49,7 @@ test('\ngenerating anchor in github mode', function (t) {
   , [ '👷🏼‍♀️ Maintenance', null, '#%EF%B8%8F-maintenance']
   , [ 'Alarm clock ⏰', null, '#alarm-clock-']
   , [ 'Apple Watch ⌚️', null, '#apple-watch-%EF%B8%8F']
+  , [ 'Remove Markdown links [`EventEmitter`](http://nodejs.org/api/events.html)', null, '#remove-markdown-links-eventemitter']
   ].forEach(function (x) { check(x[0], x[1], x[2]) });
   t.end();
 })

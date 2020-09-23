@@ -21,6 +21,8 @@ function basicGithubId(text) {
   return text.replace(/ /g,'-')
     // escape codes
     .replace(/%([abcdef]|\d){2,2}/ig, '')
+    // link URLs are removed
+    .replace(/\[(.*)\]\(.*\)/, '$1')
     // single chars that are removed
     .replace(/[\/?!:\[\]`.,()*"';{}+=<>~\$|#@&–—]/g,'')
     // CJK punctuations that are removed
